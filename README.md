@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Next.js Template with Supabase, Zustand, and Shadcn/UI
 
-## Getting Started
+This project is a Next.js template with some popular libraries pre-configured to kickstart your web development journey.
 
-First, run the development server:
+### Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **Supabase:** A Firebase alternative for authentication, storage, and real-time databases.
+* **Zustand:** A lightweight state management library for React.
+* **Shadcn/UI:** A collection of beautiful Tailwind CSS components for a quick UI development.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository or download the zip file.
+2. Install the dependencies: `npm install`
+3. Configure your Supabase connection by adding your URL and key to `.env` files (see `.gitignore` for excluded ones).
+4. Run the development server: `npm run dev`
+5. Open http://localhost:3000 in your browser to see the app running.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Resources
 
-## Learn More
+* **Supabase:** [https://supabase.com/](https://supabase.com/)
+* **Zustand:** [https://github.com/pmndrs/zustand](https://github.com/pmndrs/zustand)
+* **Shadcn/UI:** [https://github.com/shadcn-ui/ui](https://github.com/shadcn-ui/ui)
+* **Next.js:** [https://nextjs.org/](https://nextjs.org/)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
