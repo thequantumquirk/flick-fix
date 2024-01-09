@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <main className="flex min-h-screen flex-col items-center px-8">
+      <main className="flex min-h-screen flex-col items-center sm:px-8 px-2">
         <HeaderSection />
         <PopularMovies />
         <TopRatedMovies />

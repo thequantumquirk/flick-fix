@@ -58,7 +58,7 @@ function MovieDialog({ movieId }: { movieId: number }) {
           height={400}
           className="mx-auto mt-16 rounded-lg"
         />
-        <section className="p-2 flex flex-col gap-2">
+        <section className="p-2 flex flex-col gap-2 overflow-y-scroll">
           <div>
             <h2 className="text-2xl font-bold">{movie.title}</h2>
           </div>
@@ -150,7 +150,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
   };
   return (
     <Card>
-      <CardContent className="p-0 w-96">
+      <CardContent className="p-0 max-w-sm">
         <Dialog>
           <DialogTrigger>
             <div className="relative w-full rounded-lg h-64">
@@ -217,7 +217,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
               </DialogContent>
             </Dialog>
           </div>
-          <DialogContent className="p-0">
+          <DialogContent className="p-0 max-h-[80vh] overflow-y-scroll">
             <MovieDialog movieId={movie.id} />
           </DialogContent>
         </Dialog>
