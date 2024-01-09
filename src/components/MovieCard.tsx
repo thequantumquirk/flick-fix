@@ -1,4 +1,9 @@
-import { Movie } from "@/types/MovieType";
+import {
+  GenreType,
+  LanguageType,
+  Movie,
+  ProductionCompanyType,
+} from "@/types/MovieType";
 import { Card, CardContent } from "./ui/card";
 import { baseUrl, imgUrl } from "@/globals/constants";
 import Image from "next/image";
@@ -68,7 +73,7 @@ function MovieDialog({ movieId }: { movieId: number }) {
           </p>
           <div className="flex gap-1 flex-wrap">
             <span className="font-bold">Genres: </span>
-            {movie.genres.map((genre) => (
+            {movie.genres.map((genre: GenreType) => (
               <span key={genre.id}>
                 <Badge>{genre.name}</Badge>
               </span>
@@ -76,9 +81,11 @@ function MovieDialog({ movieId }: { movieId: number }) {
           </div>
           <p>
             <span className="font-bold">Languages: </span>
-            {movie.spoken_languages.map((language, id) => (
-              <span key={id}>{language.english_name}</span>
-            ))}
+            {movie.spoken_languages.map(
+              (language: LanguageType, id: number) => (
+                <span key={id}>{language.english_name}</span>
+              )
+            )}
           </p>
           <p>
             <span className="font-bold">Rating:</span>
@@ -92,7 +99,7 @@ function MovieDialog({ movieId }: { movieId: number }) {
           </p>
           <div className="flex gap-1">
             <span className="font-bold">Produced By: </span>
-            {movie.production_companies.map((comp) => (
+            {movie.production_companies.map((comp: ProductionCompanyType) => (
               <p key={comp.id}>
                 {comp.name}
                 {movie.production_companies.indexOf(comp) !==
@@ -107,7 +114,7 @@ function MovieDialog({ movieId }: { movieId: number }) {
             <a href={`https://www.imdb.com/title/${movie.imdb_id}`}>
               <svg
                 id="home_img"
-                class="ipc-logo"
+                className="ipc-logo"
                 xmlns="http://www.w3.org/2000/svg"
                 width="64"
                 height="32"

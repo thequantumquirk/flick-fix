@@ -14,3 +14,28 @@ export type Movie = {
   vote_average: number;
   vote_count: number;
 };
+
+export type GenreType = {
+  id: number;
+  name: string;
+};
+
+export type ProductionCompanyType = {
+  id: number;
+  logo_path: string;
+  name: string;
+  origin_country: string;
+};
+
+export type LanguageType = {
+  english_name: string;
+  iso_639_1: string;
+  name: string;
+};
+
+export type CartMovieType = {
+  id: number;
+  title: string;
+  poster: string;
+  price: number;
+};

@@ -1,9 +1,11 @@
+import { CartMovieType } from "@/types/MovieType";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 interface MovieStore {
-  movies: any[];
-  addMovies: (movie: any) => void;
+  movies: CartMovieType[];
+  addMovies: (movie: CartMovieType) => void;
+  removeMovies: (id: number) => void;
 }
 
 export const useMovieStore = create(

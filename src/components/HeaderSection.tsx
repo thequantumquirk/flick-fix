@@ -1,9 +1,14 @@
+"use client";
+
 import { ShoppingCart } from "lucide-react";
 import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import CartDetails from "./CartDetails";
+import { Badge } from "./ui/badge";
+import { useMovieStore } from "@/store/useMovieStore";
 
 export default function HeaderSection() {
+  const { movies } = useMovieStore();
   return (
     <nav className="sticky top-8 flex sm:px-8 p-2 py-2 m-8 rounded-xl border items-center justify-between w-full bg-background/50 backdrop-blur-md z-50">
       <div className="flex gap-1 items-center">
@@ -14,7 +19,8 @@ export default function HeaderSection() {
           className="text-sm font-semibold sm:text-base"
           onClick={() => {
             const anchor = document.querySelector("#popular");
-            anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+            anchor &&
+              anchor.scrollIntoView({ behavior: "smooth", block: "center" });
           }}
         >
           Popular
@@ -23,15 +29,19 @@ export default function HeaderSection() {
           className="text-sm font-semibold sm:text-base"
           onClick={() => {
             const anchor = document.querySelector("#top");
-            anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+            anchor &&
+              anchor.scrollIntoView({ behavior: "smooth", block: "center" });
           }}
         >
           Top Rated
         </button>
         <Popover>
           <PopoverTrigger asChild>
-            <Button className="p-2">
+            <Button className="p-2 flex gap-1">
               <ShoppingCart />
+              <Badge className="text-xs px-2" variant={"secondary"}>
+                {movies.length}
+              </Badge>
             </Button>
           </PopoverTrigger>
           <PopoverContent>
