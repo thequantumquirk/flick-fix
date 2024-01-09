@@ -183,16 +183,16 @@ export default function MovieCard({ movie }: { movie: Movie }) {
                 className="rounded-t-lg"
                 fill
               />
-              <span className="absolute bg-white p-1 rounded-full bottom-2 right-2">
-                {movie.adult ? (
+              {movie.adult ? (
+                <span className="absolute bg-white p-1 rounded-full bottom-2 right-2">
                   <Image
                     src={"/adult.svg"}
                     width={20}
                     height={20}
                     alt="adult indicator"
                   />
-                ) : null}
-              </span>
+                </span>
+              ) : null}
             </div>
             <section className="p-2 flex flex-col gap-2 text-left">
               <div className="flex justify-between items-center">
