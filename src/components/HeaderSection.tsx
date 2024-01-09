@@ -1,7 +1,6 @@
 "use client";
 
 import { ShoppingCart } from "lucide-react";
-import { Button } from "./ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import CartDetails from "./CartDetails";
 import { Badge } from "./ui/badge";
@@ -36,13 +35,14 @@ export default function HeaderSection() {
           Top Rated
         </button>
         <Popover>
-          <PopoverTrigger asChild>
-            <Button className="p-2 flex gap-1">
-              <ShoppingCart />
+          <PopoverTrigger>
+            <div className="bg-primary cursor-pointer rounded-lg p-2 flex gap-1">
+              <ShoppingCart className="text-white" />
               <Badge className="text-xs px-2" variant={"secondary"}>
                 {movies.length}
               </Badge>
-            </Button>
+              <p className="sr-only">Cart</p>
+            </div>
           </PopoverTrigger>
           <PopoverContent>
             <CartDetails />
