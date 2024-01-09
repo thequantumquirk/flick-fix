@@ -5,9 +5,17 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import CartDetails from "./CartDetails";
 import { Badge } from "./ui/badge";
 import { useMovieStore } from "@/store/useMovieStore";
+import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
 export default function HeaderSection() {
   const { movies } = useMovieStore();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <nav className="sticky top-8 flex sm:px-8 p-2 py-2 m-8 rounded-xl border items-center justify-between w-full bg-background/50 backdrop-blur-md z-50">
       <div className="flex gap-1 items-center">
@@ -34,20 +42,22 @@ export default function HeaderSection() {
         >
           Top Rated
         </button>
-        <Popover>
-          <PopoverTrigger>
-            <div className="bg-primary cursor-pointer rounded-lg p-2 flex gap-1">
-              <ShoppingCart className="text-white" />
-              <Badge className="text-xs px-2" variant={"secondary"}>
-                {movies.length}
-              </Badge>
-              <p className="sr-only">Cart</p>
-            </div>
-          </PopoverTrigger>
-          <PopoverContent>
-            <CartDetails />
-          </PopoverContent>
-        </Popover>
+        {isClient && (
+          <Popover>
+            <PopoverTrigger>
+              <Button className="p-2 flex gap-1">
+                <ShoppingCart />
+                <Badge className="text-xs px-2" variant={"secondary"}>
+                  {movies.length}
+                </Badge>
+                <p className="sr-only">Cart</p>
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <CartDetails />
+            </PopoverContent>
+          </Popover>
+        )}
       </div>
     </nav>
   );
