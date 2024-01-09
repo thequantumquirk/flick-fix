@@ -38,8 +38,7 @@ function MovieDialog({ movieId }: { movieId: number }) {
         {
           headers: {
             accept: "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjOGY0YmMxZjQ2YzgwMGUyODlhZDczZDNiMGMwMzAzOCIsInN1YiI6IjY1OWQyMmUzY2E0ZjY3MDE0YmE4YTgwMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._0FxMAc0418tiTLstHEeLJM-_Q98hxzC9kCE0SD6cFw",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_KEY}`,
           },
         }
       );
