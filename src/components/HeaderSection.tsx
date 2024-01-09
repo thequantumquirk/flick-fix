@@ -7,6 +7,7 @@ import { Badge } from "./ui/badge";
 import { useMovieStore } from "@/store/useMovieStore";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import ModeToggle from "./ThemeToggle";
 
 export default function HeaderSection() {
   const { movies } = useMovieStore();
@@ -21,7 +22,7 @@ export default function HeaderSection() {
       <div className="flex gap-1 items-center">
         <h1 className="font-bold sm:text-2xl">FLICKFIX</h1>
       </div>
-      <div className="flex justify-evenly items-center sm:gap-8 gap-2">
+      <div className="flex justify-evenly items-center sm:gap-4 gap-2">
         <button
           className="text-sm font-semibold sm:text-base"
           onClick={() => {
@@ -58,6 +59,7 @@ export default function HeaderSection() {
             </PopoverContent>
           </Popover>
         )}
+        <ModeToggle />
       </div>
     </nav>
   );

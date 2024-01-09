@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import "@smastrom/react-rating/style.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={jakarta.className}>{children}</body>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <body className={jakarta.className}>{children}</body>
+      </ThemeProvider>
     </html>
   );
 }
