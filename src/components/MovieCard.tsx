@@ -3,7 +3,7 @@ import { Card, CardContent } from "./ui/card";
 import { baseUrl, imgUrl } from "@/globals/constants";
 import Image from "next/image";
 import RatingScale from "./RatingScale";
-import { ShoppingBag, ShoppingCart } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { useQuery } from "@tanstack/react-query";
@@ -130,13 +130,29 @@ function MovieDialog({ movieId }: { movieId: number }) {
               </svg>
             </a>
           </p>
-          <Button
-            className="flex gap-2 font-bold text-lg items-center"
-            onClick={() => addToCart(movie)}
-          >
-            <ShoppingCart />
-            Rent Now
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="flex gap-1 font-semibold">
+                <ShoppingBag /> Rent Now
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>Confirm Rental</DialogHeader>
+              <DialogDescription>
+                Do you want to Rent{" "}
+                <span className="font-bold">{movie.title}</span> for $
+                {movie.vote_average.toFixed(1)}/month?
+              </DialogDescription>
+              <DialogFooter>
+                <DialogClose>
+                  <Button variant={"secondary"}>No</Button>
+                </DialogClose>
+                <DialogClose>
+                  <Button onClick={() => addToCart(movie)}>Yes</Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </section>
       </div>
     )
